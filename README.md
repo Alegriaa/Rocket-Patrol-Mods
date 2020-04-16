@@ -1,2 +1,2 @@
-# Rocket-Patrol
-Javascript Phaser 3 game remake
+# Rocket-Patrol-Mods
+Additions to Rocket Patrol

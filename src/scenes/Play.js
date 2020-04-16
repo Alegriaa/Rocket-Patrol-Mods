@@ -153,3 +153,12 @@ class Play extends Phaser.Scene {
 
 
 }
+/*
+- higher up increate low in the z depth
+- use png compression is good, transparency. 
+- reduce the scale of images
+- put small objects atlases 
+- use atlases
+leshylabs.com
+
+*/
