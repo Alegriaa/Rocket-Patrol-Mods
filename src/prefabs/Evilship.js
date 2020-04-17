@@ -1,6 +1,5 @@
-// Spaceshipp prefrab
 
-class Spaceship extends Phaser.GameObjects.Sprite {    // use phasers sprite
+class Evilship extends Phaser.GameObjects.Sprite {    // use phasers sprite
     constructor(scene, x, y, texture, frame, pointValue) {
 
         super(scene, x, y, texture, frame);
@@ -20,7 +19,7 @@ class Spaceship extends Phaser.GameObjects.Sprite {    // use phasers sprite
 
 
         
-        this.x -= game.settings.spaceshipSpeed;
+        this.x -= game.settings.spaceshipSpeed + 0.7; // making the new evil ship faster
        
         // wraparound screen bounds
 

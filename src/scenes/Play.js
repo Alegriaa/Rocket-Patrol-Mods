@@ -8,6 +8,7 @@ class Play extends Phaser.Scene {
         this.load.image('rocket', './assets/rocket.png');
         this.load.image('spaceship', './assets/spaceship.png');
         this.load.image('starfield', './assets/starfield.png');
+        this.load.image('evilnewship', 'assets/evilnewship.png')
         this.load.spritesheet('explosion', './assets/explosion.png',
             { frameWidth: 64, frameHeight: 32, starFrame: 0, endFrame: 9 });
     }
@@ -33,6 +34,8 @@ class Play extends Phaser.Scene {
         this.ship01 = new Spaceship(this, game.config.width + 100, 160, 'spaceship', 0, 30).setOrigin(0, 0);
         this.ship02 = new Spaceship(this, game.config.width + 223, 225, 'spaceship', 0, 20).setOrigin(0, 0);
         this.ship03 = new Spaceship(this, game.config.width + 60, 270, 'spaceship', 0, 10).setOrigin(0, 0);
+        this.evilShip = new Evilship(this, game.config.width + 10, 300, 'evilnewship', 0, 50).setOrigin(0, 0);
+
 
         // add rocket (p1)
         // constructor(scene, x, y, texture, frame)
@@ -106,6 +109,7 @@ class Play extends Phaser.Scene {
             this.ship01.update();
             this.ship02.update();
             this.ship03.update();
+            this.evilShip.update();
         }
 
         if (this.checkCollision(this.p1Rocket, this.ship03)) {
@@ -120,6 +124,11 @@ class Play extends Phaser.Scene {
             this.p1Rocket.reset();
             this.shipExplode(this.ship01);
         }
+        if (this.checkCollision(this.p1Rocket, this.evilShip)) {
+            this.p1Rocket.reset();
+            this.shipExplode(this.evilShip);
+        }
+
 
 
     }
