@@ -43,6 +43,9 @@ class Play extends Phaser.Scene {
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+        keyZ = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
+        keyX = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.X);
+
 
         this.anims.create({ // used to access Phaser's animation manager.
             key: 'explode',
@@ -75,7 +78,7 @@ class Play extends Phaser.Scene {
         // 60 second play clock
         scoreConfig.fixedWidth = 0;
         this.clock = this.time.delayedCall(game.settings.gameTimer, () => {
-            this.add.text(game.config.width / 2, game.config.height / 2, 'GAME OVER', scoreConfig).setOrigin(0.5);
+            this.add.text(game.config.width / 2, game.config.height / 2, 'TRY AGAIN', scoreConfig).setOrigin(0.5);
             this.add.text(game.config.width / 2, game.config.height / 2 + 64, '(F)ire to Restart or <- for Menu',
                 scoreConfig).setOrigin(0.5);
             this.gameOver = true;
@@ -84,6 +87,7 @@ class Play extends Phaser.Scene {
     }
 
     update() {
+      
 
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyF)) {
             this.scene.restart(this.p1Score);
@@ -153,12 +157,3 @@ class Play extends Phaser.Scene {
 
 
 }
-/*
-- higher up increate low in the z depth
-- use png compression is good, transparency. 
-- reduce the scale of images
-- put small objects atlases 
-- use atlases
-leshylabs.com
-
-*/

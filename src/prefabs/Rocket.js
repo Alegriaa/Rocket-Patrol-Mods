@@ -24,6 +24,12 @@ class Rocket extends Phaser.GameObjects.Sprite {    // use phasers sprite
             this.isFiring = true;
             this.sfxRocket.play(); // play sfx
         }
+        if(this.isFiring && keyZ.isDown && this.x >= 47){
+            this.x -= 2;
+        }
+        if(this.isFiring && keyX.isDown && this.x >= 47){
+            this.x += 2;
+        }
 
         if (this.isFiring && this.y >= 108) {
             this.y -= 2;
