@@ -15,5 +15,6 @@ let keyF, keyLEFT, keyRIGHT, keyZ, keyX;
 
 game.settings = {
     spaceshipSpeed: 3,
+    evilshipSpeed: 300,
     gameTimer: 60000
 }
