@@ -1,13 +1,14 @@
 // Spaceshipp prefrab
 
 class Spaceship extends Phaser.GameObjects.Sprite {    // use phasers sprite
-    constructor(scene, x, y, texture, frame, pointValue) {
+    constructor(scene, x, y, texture, frame, pointValue, pointValue2) {
 
         super(scene, x, y, texture, frame);
 
 
         scene.add.existing(this); // add object to existing scene, built into phaser
         this.points = pointValue;
+        this.points2 = pointValue2;
 
 
 
