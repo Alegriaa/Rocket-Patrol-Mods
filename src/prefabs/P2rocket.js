@@ -1,6 +1,4 @@
-// Rocket prefab
-
-class Rocket extends Phaser.GameObjects.Sprite {    // use phasers sprite
+class P2rocket extends Phaser.GameObjects.Sprite {    // use phasers sprite
     constructor(scene, x, y, texture, frame) {
         super(scene, x, y, texture, frame);
         scene.add.existing(this); // add object to existing scene, built into phaser
@@ -13,14 +11,14 @@ class Rocket extends Phaser.GameObjects.Sprite {    // use phasers sprite
 
     update() {
         if (!this.isFiring) {   // left / right movement
-            if (keyLEFT.isDown && this.x >= 47) {
+            if (keyZ.isDown && this.x >= 47) {
                 this.x -= 2;
-            } else if (keyRIGHT.isDown && this.x <= 592) {
+            } else if (keyX.isDown && this.x <= 592) {
                 this.x += 2;
             }
         }
 
-        if (Phaser.Input.Keyboard.JustDown(keyF) && !this.isFiring) {
+        if (Phaser.Input.Keyboard.JustDown(keyC) && !this.isFiring) {
             this.isFiring = true;
             this.sfxRocket.play(); // play sfx
         }
@@ -32,9 +30,9 @@ class Rocket extends Phaser.GameObjects.Sprite {    // use phasers sprite
         //     this.x += 2;
         // }
 
-        if (this.isFiring && this.y >= 108) {
-            this.y -= 2;
-        }
+         if (this.isFiring && this.y >= 108) {
+             this.y -= 2;
+         }
 
         if (this.y <= 108) {
             this.reset();
