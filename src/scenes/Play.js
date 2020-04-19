@@ -14,6 +14,11 @@ class Play extends Phaser.Scene {
     }
 
     create() {
+
+        if(!this.gamOver){
+            this.sound.play('backgroundMusic');
+        }
+        
         // first thing you add in create will be the last thing rendered 
         // place tile sprite
         this.starfield = this.add.tileSprite(0, 0, 640, 480, 'starfield').setOrigin(0, 0);
@@ -71,7 +76,7 @@ class Play extends Phaser.Scene {
             fontSize: '28px',
             backgroundColor: '#F3B141',
             color: '#843605',
-            align: 'right',
+            align: 'left',
             padding: {
                 top: 5,
                 bottom: 5,
@@ -94,8 +99,8 @@ class Play extends Phaser.Scene {
 
         }
 
-        this.scoreLeft = this.add.text(69, 54, this.p1Score, scoreConfig);
-        this.scoreRight = this.add.text(169, 154, this.p2Score, score2Config);
+        this.scoreLeft = this.add.text(69, 54, this.p2Score, scoreConfig);
+        this.scoreRight = this.add.text(469, 54, this.p1Score, score2Config);
 
         // game over flag
         this.gameOver = false;
@@ -112,6 +117,7 @@ class Play extends Phaser.Scene {
     }
 
     update() {
+       
       
 
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyF)) {
