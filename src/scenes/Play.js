@@ -101,7 +101,7 @@ class Play extends Phaser.Scene {
         }
 
         this.scoreLeft = this.add.text(69, 54, this.p1Score, scoreConfig);
-        this.scoreRight = this.add.text(469, 54, this.p2Score, score2Config);
+        this.scoreRight = this.add.text(469, 54, this.p2Score, score2Config); // displaying points for second player
 
         // game over flag
         this.gameOver = false;
@@ -226,7 +226,7 @@ class Play extends Phaser.Scene {
 
 
     }
-    shipExplode2(ship) {
+    shipExplode2(ship) { // this is so that the second player gets correct points assigned
         ship.alpha = 0; // hiding the ship, every sprite object has an alpha setting 
         // creating explosion sprite at ship's position
 

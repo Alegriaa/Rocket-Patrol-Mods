@@ -15,13 +15,13 @@ class Menu extends Phaser.Scene {
 
     create() {
         
-        this.sound.play('backgroundMusic');
-
+        this.sound.play('backgroundMusic'); // playing my music
+        // new copyright free background
         this.universe = this.add.tileSprite(0, 0, 640, 480, 'universe').setOrigin(0, 0);
         
 
         let menuConfig = {
-            fontFamily: 'Impact',
+            fontFamily: 'Impact', // changed the font
             fontSize: '28px',
             backgroundColor: '#F3B141',
             color: '#843605',
@@ -56,7 +56,7 @@ class Menu extends Phaser.Scene {
 
         this.add.text(centerX, centerY - textSpacer * 3, 'ROCKET PATROL ', menuConfig).setOrigin(0.5);
        
-        
+       // Added more information 
         this.add.text(centerX, centerY - textSpacer * 2, 'PLAYER 1: ', menuText).setOrigin(0.5);
         this.add.text(centerX, centerY - textSpacer, 'USE ( Z ) TO MOVE LEFT & ( X ) TO MOVE RIGHT', menuText).setOrigin(0.5);
         this.add.text(centerX, centerY, 'Use ( C ) to Fire', menuText).setOrigin(0.5);
