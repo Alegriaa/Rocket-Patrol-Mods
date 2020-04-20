@@ -10,12 +10,18 @@ class Menu extends Phaser.Scene {
         this.load.audio('sfx_rocket', './assets/rocket_shot.wav');
         this.load.audio('sfx_rocket', './assets/rocket_shot.wav');
         this.load.audio('backgroundMusic', './assets/rocketPatrolMusic.wav');
+        this.load.image('universe', 'assets/universe.png')
     }
 
     create() {
+        
+        this.sound.play('backgroundMusic');
+
+        this.universe = this.add.tileSprite(0, 0, 640, 480, 'universe').setOrigin(0, 0);
+        
 
         let menuConfig = {
-            fontFamily: 'Courier',
+            fontFamily: 'Impact',
             fontSize: '28px',
             backgroundColor: '#F3B141',
             color: '#843605',
@@ -29,10 +35,11 @@ class Menu extends Phaser.Scene {
         }
 
         let menuText = {
-            fontFamily: 'Courier',
+            fontFamily: 'Impact',
             fontSize: '24px',
-            backgroundColor: '#F3B141',
-            color: '#843605',
+           
+            color: '#A74242',
+            backgroundColor: '#500303',
             align: 'right',
             padding: {
                 top: 5,
@@ -47,17 +54,17 @@ class Menu extends Phaser.Scene {
         let centerY = game.config.height / 2;
         let textSpacer = 64;
 
-        this.add.text(centerX, centerY - textSpacer * 3, 'ROCKET PATROL Two Player', menuConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY - textSpacer * 3, 'ROCKET PATROL ', menuConfig).setOrigin(0.5);
+       
         
-        this.add.text(centerX, centerY - textSpacer * 2, 'Player 1: ', menuText).setOrigin(0.5);
-        this.add.text(centerX, centerY - textSpacer, 'Use (Z) to move Left & (X) to move Right', menuText).setOrigin(0.5);
+        this.add.text(centerX, centerY - textSpacer * 2, 'PLAYER 1: ', menuText).setOrigin(0.5);
+        this.add.text(centerX, centerY - textSpacer, 'USE (Z) TO MOVE LEFT & (X) TO MOVE RIGHT', menuText).setOrigin(0.5);
         this.add.text(centerX, centerY, 'Use (C) to Fire', menuText).setOrigin(0.5);
-        this.add.text(centerX, centerY + textSpacer, ' Play 2: ', menuText).setOrigin(0.5);
+        this.add.text(centerX, centerY + textSpacer, ' PLAYER 2: ', menuText).setOrigin(0.5);
         
-        this.add.text(centerX, centerY + textSpacer * 2, ' Play 2 Use <-> arrows to move & (F) to Fire', menuText).setOrigin(0.5);
-        menuText.backgroundColor = '#00FF00';
-        menuText.color = '#000';
-        this.add.text(centerX, centerY + textSpacer * 3, 'Select (E) for Easy Mode or (H) for Hard', menuText).setOrigin(0.5);
+        this.add.text(centerX, centerY + textSpacer * 2, 'USE <-> ARROWS TO MOVE & (F) TO FIRE', menuText).setOrigin(0.5);
+        
+        this.add.text(centerX, centerY + textSpacer * 3, 'SELECT (E) FOR EASY MODE OR (H) FOR HARD MODE', menuConfig).setOrigin(0.5);
         //define keys for difficulty selection
         keyE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
         keyH = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.H);
@@ -79,7 +86,7 @@ class Menu extends Phaser.Scene {
 
             game.settings = {
                 spaceshipSpeed: 4,
-                gameTimer: 45000
+                gameTimer: 60000
             }
             this.sound.play('sfx_select');
             this.scene.start("playScene")

@@ -1,14 +1,14 @@
 // Spaceshipp prefrab
 
 class Spaceship extends Phaser.GameObjects.Sprite {    // use phasers sprite
-    constructor(scene, x, y, texture, frame, pointValue, pointValue2) {
+    constructor(scene, x, y, texture, frame, pointValue) {
 
         super(scene, x, y, texture, frame);
 
 
         scene.add.existing(this); // add object to existing scene, built into phaser
         this.points = pointValue;
-        this.points2 = pointValue2;
+       
 
 
 
@@ -17,8 +17,6 @@ class Spaceship extends Phaser.GameObjects.Sprite {    // use phasers sprite
 
     update() {
         // move spaceship left 
-        
-
 
         
         this.x -= game.settings.spaceshipSpeed;
