@@ -1,3 +1,13 @@
+// Brian Pereira Alegria
+// Implement a simultaneous two-player mode (50)
+// Create a new spaceship type (w/ new artwork) that's smaller, 
+// moves faster, and is worth more points (25)
+// Create a new title screen (15)
+// Add your own (copyright-free) background music to the Play scene (10)
+// background music was produced by me 
+
+
+
 let config = {
     type: Phaser.CANVAS,
     width: 640,
