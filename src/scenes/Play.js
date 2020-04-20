@@ -15,10 +15,8 @@ class Play extends Phaser.Scene {
 
     create() {
 
-        if(!this.gamOver){
-            this.sound.play('backgroundMusic');
-        }
         
+
         // first thing you add in create will be the last thing rendered 
         // place tile sprite
         this.starfield = this.add.tileSprite(0, 0, 640, 480, 'starfield').setOrigin(0, 0);
@@ -32,7 +30,6 @@ class Play extends Phaser.Scene {
         // green UI background
 
         this.add.rectangle(37, 42, 566, 64, 0x00FF00).setOrigin(0, 0);
-        this.add.text(20, 20, "Rocket Patrol Play");
         // 0,0 is upper left 
 
         // add spaceship
@@ -71,6 +68,7 @@ class Play extends Phaser.Scene {
         this.p1Score = 0;
         this.p2Score = 0;
 
+
         let scoreConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
@@ -99,8 +97,8 @@ class Play extends Phaser.Scene {
 
         }
 
-        this.scoreLeft = this.add.text(69, 54, this.p2Score, scoreConfig);
-        this.scoreRight = this.add.text(469, 54, this.p1Score, score2Config);
+        this.scoreLeft = this.add.text(69, 54, this.p1Score, scoreConfig);
+        this.scoreRight = this.add.text(469, 54, this.p2Score, score2Config);
 
         // game over flag
         this.gameOver = false;
@@ -108,7 +106,6 @@ class Play extends Phaser.Scene {
         // 60 second play clock
         scoreConfig.fixedWidth = 0;
         this.clock = this.time.delayedCall(game.settings.gameTimer, () => {
-            this.add.text(game.config.width / 2, game.config.height / 2, 'TRY AGAIN', scoreConfig).setOrigin(0.5);
             this.add.text(game.config.width / 2, game.config.height / 2 + 64, '(F)ire to Restart or <- for Menu',
                 scoreConfig).setOrigin(0.5);
             this.gameOver = true;
@@ -117,7 +114,7 @@ class Play extends Phaser.Scene {
     }
 
     update() {
-       
+     
       
 
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyF)) {
@@ -146,19 +143,19 @@ class Play extends Phaser.Scene {
 
         if (this.checkCollision(this.p1Rocket, this.ship03)) {
             this.p1Rocket.reset();
-            this.shipExplode(this.ship03);
+            this.shipExplode2(this.ship03);
         }
         if (this.checkCollision(this.p1Rocket, this.ship02)) {
             this.p1Rocket.reset();
-            this.shipExplode(this.ship02);
+            this.shipExplode2(this.ship02);
         }
         if (this.checkCollision(this.p1Rocket, this.ship01)) {
             this.p1Rocket.reset();
-            this.shipExplode(this.ship01);
+            this.shipExplode2(this.ship01);
         }
         if (this.checkCollision(this.p1Rocket, this.evilShip)) {
             this.p1Rocket.reset();
-            this.shipExplode(this.evilShip);
+            this.shipExplode2(this.evilShip);
         }
 
 
@@ -166,22 +163,22 @@ class Play extends Phaser.Scene {
         // player 2 collisions
         if (this.checkCollision(this.p2Rocket, this.ship03)) {
             this.p2Rocket.reset();
-            this.shipExplode2(this.ship03); // we use shipExplode2, so points for this kill goes to the second player
+            this.shipExplode(this.ship03); // we use shipExplode2, so points for this kill goes to the second player
            
         }
         if (this.checkCollision(this.p2Rocket, this.ship02)) {
             this.p2Rocket.reset();
-            this.shipExplode2(this.ship02);
+            this.shipExplode(this.ship02);
        
         }
         if (this.checkCollision(this.p2Rocket, this.ship01)) {
             this.p2Rocket.reset();
-            this.shipExplode2(this.ship01);
+            this.shipExplode(this.ship01);
         
         }
         if (this.checkCollision(this.p2Rocket, this.evilShip)) {
             this.p2Rocket.reset();
-            this.shipExplode2(this.evilShip);
+            this.shipExplode(this.evilShip);
           
         }
 
@@ -246,6 +243,8 @@ class Play extends Phaser.Scene {
         this.sound.play('sfx_explosion'); // one-off sound instead of instance 
 
     }
+
+  
 
 
    
