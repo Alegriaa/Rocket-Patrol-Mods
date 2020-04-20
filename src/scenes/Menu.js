@@ -58,13 +58,13 @@ class Menu extends Phaser.Scene {
        
         
         this.add.text(centerX, centerY - textSpacer * 2, 'PLAYER 1: ', menuText).setOrigin(0.5);
-        this.add.text(centerX, centerY - textSpacer, 'USE (Z) TO MOVE LEFT & (X) TO MOVE RIGHT', menuText).setOrigin(0.5);
-        this.add.text(centerX, centerY, 'Use (C) to Fire', menuText).setOrigin(0.5);
+        this.add.text(centerX, centerY - textSpacer, 'USE ( Z ) TO MOVE LEFT & ( X ) TO MOVE RIGHT', menuText).setOrigin(0.5);
+        this.add.text(centerX, centerY, 'Use ( C ) to Fire', menuText).setOrigin(0.5);
         this.add.text(centerX, centerY + textSpacer, ' PLAYER 2: ', menuText).setOrigin(0.5);
         
-        this.add.text(centerX, centerY + textSpacer * 2, 'USE <-> ARROWS TO MOVE & (F) TO FIRE', menuText).setOrigin(0.5);
+        this.add.text(centerX, centerY + textSpacer * 2, 'USE <-> ARROWS TO MOVE & ( L ) TO FIRE', menuText).setOrigin(0.5);
         
-        this.add.text(centerX, centerY + textSpacer * 3, 'SELECT (E) FOR EASY MODE OR (H) FOR HARD MODE', menuConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY + textSpacer * 3, 'SELECT ( E ) FOR EASY MODE OR ( H ) FOR HARD MODE', menuConfig).setOrigin(0.5);
         //define keys for difficulty selection
         keyE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
         keyH = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.H);

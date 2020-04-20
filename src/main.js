@@ -9,7 +9,7 @@ let game = new Phaser.Game(config);
 
 // reserve some keyboard variables
 
-let keyF, keyLEFT, keyRIGHT, keyZ, keyX, keyC, keyE, keyH;
+let keyF, keyLEFT, keyRIGHT, keyZ, keyX, keyC, keyE, keyH, keyL, keySPACE;
 
 // define game settings
 
