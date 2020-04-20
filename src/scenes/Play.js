@@ -36,7 +36,7 @@ class Play extends Phaser.Scene {
         this.ship01 = new Spaceship(this, game.config.width + 100, 160, 'spaceship', 0, 30, 30).setOrigin(0, 0);
         this.ship02 = new Spaceship(this, game.config.width + 223, 225, 'spaceship', 0, 20, 30).setOrigin(0, 0);
         this.ship03 = new Spaceship(this, game.config.width + 60, 270, 'spaceship', 0, 10, 10).setOrigin(0, 0);
-        this.evilShip = new Evilship(this, game.config.width + 10, 300, 'evilnewship', 0, 50, 50).setOrigin(0, 0);
+        this.evilShip = new Evilship(this, game.config.width + 10, 150, 'evilnewship', 0, 50, 50).setOrigin(0, 0);
 
 
         // add rocket (p1)
@@ -54,6 +54,9 @@ class Play extends Phaser.Scene {
         keyZ = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
         keyX = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.X);
         keyC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C);
+        keyL = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.L);
+        keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        
 
 
         this.anims.create({ // used to access Phaser's animation manager.
@@ -106,7 +109,8 @@ class Play extends Phaser.Scene {
         // 60 second play clock
         scoreConfig.fixedWidth = 0;
         this.clock = this.time.delayedCall(game.settings.gameTimer, () => {
-            this.add.text(game.config.width / 2, game.config.height / 2 + 64, '(F)ire to Restart or <- for Menu',
+            this.add.text(game.config.width / 2, game.config.height / 2, 'GAME OVER', scoreConfig).setOrigin(0.5);
+            this.add.text(game.config.width / 2, game.config.height / 2 + 64, 'SpaceBar to Restart or <- for Menu',
                 scoreConfig).setOrigin(0.5);
             this.gameOver = true;
         },
@@ -117,12 +121,11 @@ class Play extends Phaser.Scene {
      
       
 
-        if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyF)) {
+        if (this.gameOver && Phaser.Input.Keyboard.JustDown(keySPACE)) {
             this.scene.restart(this.p1Score);
-        }
-        if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyF)) {
             this.scene.restart(this.p2Score);
         }
+      
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)) {
             this.scene.start("menuScene");
         }
